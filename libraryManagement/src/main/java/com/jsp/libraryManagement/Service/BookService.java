@@ -21,6 +21,7 @@ public class BookService {
 	BookDao bookDao;
 	@Autowired
 	AuthorDao authorDao;
+	
 	//save book
 	public ResponseEntity<ResponseStructure<Book>> saveBook(Book book){
 		Optional<Author> author=authorDao.getAuthorById(book.getAuthor().getId());
@@ -88,6 +89,7 @@ public class BookService {
 			throw new IdNotFoundException();
 		}
 	}
+	
 	//find book by genre
 	public ResponseEntity<ResponseStructure<List<Book>>>findBooksByGenre(String genre) { 
 		List<Book> recievedBook =bookDao.findBooksByGenre(genre);

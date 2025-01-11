@@ -21,6 +21,8 @@ public class Member {
 	private long phone;
 
 	@OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
+	
+	// to ignore loans details in book
 	@JsonIgnore
 	private List<Loan> loans;
 
