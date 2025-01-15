@@ -27,7 +27,7 @@ public class BookService {
 		Optional<Author> author=authorDao.getAuthorById(book.getAuthor().getId());
 		if(author.isPresent()) {
 			Book recievedBook=bookDao.saveBook(book);
-			book.setAuthor(author.get());
+			recievedBook.setAuthor(author.get());
 			ResponseStructure<Book> structure = new ResponseStructure<Book>();
 			structure.setStatusCode(HttpStatus.CREATED.value()); //201
 			structure.setMessage("success");
